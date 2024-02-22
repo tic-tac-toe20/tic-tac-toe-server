@@ -10,7 +10,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, { 
   cors: {
-    origin: "https://tic-tac-tue.web.app"
+    origin: "http://localhost:5173"
   }
  });
 
@@ -21,10 +21,12 @@ const io = new Server(httpServer, {
   let user = socket.handshake.auth.username 
     console.log('new connect '+socket.handshake.auth.username);
 
+    // klo ada user login
     if (user) {
       arr.push({user});
-      console.log(arr,'<- arr user');
+      // console.log(arr,'<- arr user');
 
+      // klo yg login sudah 2 user
       if (arr.length === 2) {
         console.log('2 user telah login');
         arr[0].symbol = 'X'
