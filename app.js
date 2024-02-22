@@ -23,6 +23,7 @@ const io = new Server(httpServer, {
 
     if (user) {
       arr.push({user});
+      console.log(arr,'<- arr user');
 
       if (arr.length === 2) {
         console.log('2 user telah login');
@@ -46,6 +47,8 @@ const io = new Server(httpServer, {
    socket.on('username',(e)=>{
     io.emit('username', e)
    })
+
+   
  });
 
 httpServer.listen(port,()=> console.log(`listen on porrt ${port}`));
